@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "pkg/grpc/transmitter/";
+
+service Transmitter {
+    rpc ListRequests(Empty) returns (stream Response) {}
+}
+
+message Empty {}
+
+message Response {
+    string uuid = 1;
+    double frequency = 2;
+    int64 timestamp = 3;
+}
